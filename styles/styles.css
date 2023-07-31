@@ -6,10 +6,6 @@ body{
     font-family: 'Barlow Condensed', sans-serif;
     background-color: #ebebeb;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 #start{
     display: flex;

@@ -3,9 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;400;800&family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <section id="start" class="sections">
+        <h1>Calculadora de calorias</h1>
+        <h3>calculadora de calorias de mantenimiento e IMC</h3>
+        <button id="start-btn">Comenzar</button>
+    </section>
+    <section id="create-user" class="sections">
+        <h2>Ingrese sus datos</h2>
+        <h3>calculadora de calorias de mantenimiento e IMC</h3>
+        <form id="userForm">
+            <label for="username">Nombre: </label>
+            <input type="text" id="username" name="username" required>
+            <label for="gender">Género: </label>
+            <select id="gender" name="gender">
+                <option value="femenino">Femenino</option>
+                <option value="masculino">Masculino</option>
+            </select>
+            <label for="age">Edad: </label>
+            <input type="number" min="1" max="99" id="age" name="age" required>
+            <label for="weight">Peso (en kilos): </label>
+            <input type="number" min="1" id="weight" name="weight" required>
+            <label for="height">Altura (en centimetros): </label>
+            <input type="number" min="1" max="250" id="height" name="height" required>
+            <label for="activity-range">Rango de actividad(del 1 al 5): </label> 
+            <p>El rango de actividad indica que tanto esfuerzo físico hace una persona en su vida diaria. Siendo:</p>
+            <ul>
+                <li>1 - poco o ningun ejercicio</li>
+                <li>2 - Ejercicio ligero (1-3 días a la semana)</li>
+                <li>3 - Ejercicio moderado (3-5 días a la semana)</li>
+                <li>4 - Ejercicio fuerte (6-7 días a la semana)</li>
+                <li>5 - Ejercicio muy fuerte (dos veces al día, entrenamientos muy duros)</li>
+            </ul>
+            <input type="number" min="1" max="5" id="activity-range" name="activity-range" required>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+    <section id="results" class="sections">     
+    </section>
+    <div id="backBtnContainer">
+        <button id="back">Volver</button>
+    </div>
+    <div id="selector" class="sectionDown">
+        <h3>usuarios previos:</h3>
+        <select name="users" id="userSelector">
+        </select> 
+        <input type="submit" value="ver usuario" onclick="verUsuario()">
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-//Clase del Usuario
+// - CLASES - //
 class User{
     constructor (username, genre, age, weight, height, activityRange){ //activity range va del 0 al 4 dependiendo que tan activo seas
         this.username = username
@@ -23,26 +23,17 @@ class User{
             this.activityRange = 2.4
             break
         }
-    }
-    caloriesCalculation(){
-        let result = 0
         if(this.genre === "masculino"){
-            result = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5 ) * this.activityRange
+            this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5 ) * this.activityRange
         }
         else if(this.genre === "femenino"){
-            result = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161 ) * this.activityRange
+            this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161 ) * this.activityRange
         }
-        else{
-            result = 12
-        }
-        return result
-    }
-    IMCcalculation(){
-        return this.weight / Math.pow(this.height/100, 2)
+        this.IMC = this.weight / Math.pow(this.height/100, 2)
     }
 }
 
-//Creo Usuarios
+// - VARIABLES - //
 const users = [] 
 const startBtn = document.getElementById("start-btn")
 const form = document.getElementById("userForm")
@@ -53,72 +44,110 @@ const backBtn = document.getElementById("backBtnContainer")
 const selector = document.getElementById("selector")
 const userSelector = document.getElementById("userSelector")
 
-backBtn.style.display = "none"
-resultsSection.style.display = "none"
+// - FUNCIONES - //
+// Función para ocultar un elemento
+function hideElement(element) {
+    element.classList.add("hidden");
+    element.classList.remove("visible");
+}
+// Función para mostrar un elemento
+function showElement(element) {
+    element.classList.remove("hidden");
+    element.classList.add("visible");
+}
+// Función busqueda de usuario
+function userfinder(){
+    let hola = 0
+}
+//Función para ver usuario 
+function verUsuario(){  
+    const selectedUser = users.find( (user) => user.username === document.getElementById('userSelector').value )
+    if(selectedUser){
+        const calories = selectedUser.calories
+        const IMC = selectedUser.IMC
+        const username = selectedUser.username
+        resultsSection.innerHTML = "<h2>Hola "+username+"! tus resultados son: </h2><h3>Calorias de mantenimiento: "+calories+"</h3><h3>IMC:"+IMC+"</h3>"
 
-backBtn.addEventListener("click", () => {
-    startSection.style.display = "flex"
-    createUser.style.display = "none"
-    backBtn.style.display = "none"
-    resultsSection.style.display = "none"
-    selector.style.display = "flex"
-})
-startBtn.addEventListener("click", () => {
-    startSection.style.display = "none"
-    createUser.style.display = "flex"
-    resultsSection.style.display = "none"
-    selector.style.display = "none"
-})
+        hideElement(createUser)
+        hideElement(selector)
+        hideElement(startSection)
+        showElement(resultsSection)
+        showElement(backBtn)
+    }
+}
+
+//Oculto elementos de arranque
+hideElement(createUser)
+hideElement(backBtn)
+hideElement(resultsSection)
+
+// - EVENT LISTENERS - //
+// Al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+    users.push(...storedUsers);
+    // Actualizar el select con los nombres de usuario
+    storedUsers.forEach((storedUser) => {
+        const newUser = document.createElement("option");
+        newUser.textContent = storedUser.username;
+        newUser.value = storedUser.username;
+        userSelector.appendChild(newUser);
+    });
+});
+
+//Creacion de un nuevo usuario
 form.addEventListener("submit", submitForm);
 function submitForm(event) {
     event.preventDefault()
-    const usernameform = document.getElementById("username").value
+    //chequeo que no exista
     if( users.find((user) => user.username === usernameform) ){
         alert("El nombre de usuario ya existe. Por favor, elige un nombre de usuario diferente.");
         users.pop()
-        console.log(users)
-        startSection.style.display = "flex"
-        createUser.style.display = "none"
-        backBtn.style.display = "none"
-        resultsSection.style.display = "none"
-        selector.style.display = "flex"
+        showElement(startSection)
+        showElement(selector)
+        hideElement(createUser)
+        hideElement(backBtn)
+        hideElement(resultsSection)
         return;
     }
+    //Lo pusheo al array y lo guardo al LocalStorage
+    const usernameform = document.getElementById("username").value
     users.push( new User( usernameform, 
                         document.getElementById("gender").value,
                         document.getElementById("age").value,
                         document.getElementById("weight").value,
                         document.getElementById("height").value,
                         document.getElementById("activity-range").value))
-    createUser.style.display = "none"
-    resultsSection.style.display = "flex"
-    selector.style.display = "none"
-    backBtn.style.display = "flex"
-    const calories = users[users.length-1].caloriesCalculation()
-    const IMC = users[users.length-1].IMCcalculation()
+    localStorage.setItem("users", JSON.stringify(users));
+    const calories = users[users.length-1].calories
+    const IMC = users[users.length-1].IMC
     const username = users[users.length-1].username
-    resultsSection.innerHTML = "<h2>Hola "+username+"! tus resultados son: </h2><h3>Calorias de mantenimiento: "+calories+"</h3><h3>IMC:"+IMC+"</h3>"     
+    //Modifico el DOM
     const newUser = document.createElement("option")
+    resultsSection.innerHTML = "<h2>Hola "+username+"! tus resultados son: </h2><h3>Calorias de mantenimiento: "+calories+"</h3><h3>IMC:"+IMC+"</h3>"     
     newUser.textContent = username; // Texto de la opción
     newUser.value = username;
     userSelector.appendChild(newUser)
-}
-function verUsuario(){  
-    const selectedUser = users.find( (user) => user.username === document.getElementById('userSelector').value )
-    if(selectedUser){
-        startSection.style.display = "none"
-        createUser.style.display = "none"
-        resultsSection.style.display = "flex"
-        selector.style.display = "none"
-        backBtn.style.display = "flex"
-        const calories = selectedUser.caloriesCalculation()
-        const IMC = selectedUser.IMCcalculation()
-        const username = selectedUser.username
-        resultsSection.innerHTML = "<h2>Hola "+username+"! tus resultados son: </h2><h3>Calorias de mantenimiento: "+calories+"</h3><h3>IMC:"+IMC+"</h3>"
-    }
-    else{
-        alert("No ha seleccionado ninguno usuario o el nombre es inválido")
-    }   
+
+    showElement(resultsSection)
+    showElement(backBtn)
+    hideElement(selector)
+    hideElement(createUser)
 }
 
+//Boton de back
+backBtn.addEventListener("click", () => {
+    hideElement(createUser)
+    hideElement(backBtn)
+    hideElement(resultsSection)
+    showElement(startSection)
+    showElement(selector)
+})
 
+//Boton de start
+startBtn.addEventListener("click", () => {
+    showElement(createUser)
+    hideElement(startSection)
+    hideElement(selector)
+    showElement(backBtn)
+})

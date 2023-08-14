@@ -23,12 +23,7 @@ class User{
             this.activityRange = 2.4
             break
         }
-        if(this.genre === "masculino"){
-            this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5 ) * this.activityRange
-        }
-        else if(this.genre === "femenino"){
-            this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161 ) * this.activityRange
-        }
+        this.genre === "masculino" ? this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) + 5 ) * this.activityRange : this.calories = ( (10 * this.weight) + (6.25 * this.height) - (5 * this.age) - 161 ) * this.activityRange
         this.IMC = this.weight / Math.pow(this.height/100, 2)
     }
 }
@@ -100,6 +95,7 @@ form.addEventListener("submit", submitForm);
 function submitForm(event) {
     event.preventDefault()
     //chequeo que no exista
+    const usernameform = document.getElementById("username").value
     if( users.find((user) => user.username === usernameform) ){
         alert("El nombre de usuario ya existe. Por favor, elige un nombre de usuario diferente.");
         users.pop()
@@ -111,7 +107,6 @@ function submitForm(event) {
         return;
     }
     //Lo pusheo al array y lo guardo al LocalStorage
-    const usernameform = document.getElementById("username").value
     users.push( new User( usernameform, 
                         document.getElementById("gender").value,
                         document.getElementById("age").value,

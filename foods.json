@@ -1,0 +1,178 @@
+[
+    {
+      "name": "Ensalada de pollo",
+      "calories": 250,
+      "fat": 10,
+      "carbohydrates": 30,
+      "protein": 25,
+      "servingSize": "1 porcion"
+    },
+    {
+      "name": "Pasta con tomate y queso",
+      "calories": 450,
+      "fat": 15,
+      "carbohydrates": 60,
+      "protein": 20,
+      "servingSize": "1 taza de pasta y 1/2 taza de salsa de tomate"
+    },
+    {
+      "name": "Arroz con pollo y verduras",
+      "calories": 400,
+      "fat": 10,
+      "carbohydrates": 40,
+      "protein": 30,
+      "servingSize": "1 taza de arroz, 1/2 taza de pollo y 1 taza de verduras"
+    },
+    {
+      "name": "Enchiladas de pollo",
+      "calories": 500,
+      "fat": 15,
+      "carbohydrates": 40,
+      "protein": 30,
+      "servingSize": "2 porciones"
+    },
+    {
+      "name": "Hamburguesa de carne con papas fritas",
+      "calories": 600,
+      "fat": 20,
+      "carbohydrates": 40,
+      "protein": 30,
+      "servingSize": "1 hamburguesa de 100 gramos, 1 taza de papas fritas y 1 taza de ensalada"
+    },
+    {
+      "name": "Ensalada de atún",
+      "calories": 200,
+      "fat": 10,
+      "carbohydrates": 20,
+      "protein": 25,
+      "servingSize": "1 taza"
+    },
+    {
+      "name": "Ensalada de quinoa",
+      "calories": 300,
+      "fat": 15,
+      "carbohydrates": 50,
+      "protein": 20,
+      "servingSize": "1 taza"
+    },
+    {
+      "name": "Ensalada de legumbres",
+      "calories": 250,
+      "fat": 10,
+      "carbohydrates": 30,
+      "protein": 25,
+      "servingSize": "1 taza"
+    },
+    {
+      "name": "Ensalada de frutas",
+      "calories": 150,
+      "fat": 5,
+      "carbohydrates": 30,
+      "protein": 5,
+      "servingSize": "1 taza"
+    },
+    {
+      "name": "Tortilla de verduras",
+      "calories": 300,
+      "fat": 10,
+      "carbohydrates": 40,
+      "protein": 25,
+      "servingSize": "1 tortilla"
+    },
+    {
+      "name": "Sándwich de pollo",
+      "calories": 400,
+      "fat": 15,
+      "carbohydrates": 40,
+      "protein": 30,
+      "servingSize": "1 sándwich"
+    },
+    {
+      "name": "Sopa de lentejas",
+      "calories": 250,
+      "fat": 10,
+      "carbohydrates": 30,
+      "protein": 25,
+      "servingSize": "1 taza"
+    },
+    {
+      "name": "Sopa de verduras",
+      "calories": 150,
+      "fat": 5,
+      "carbohydrates": 30,
+      "protein": 5,
+      "servingSize": "1 taza"
+    },
+    {
+        "name": "Pescado a la plancha con verduras",
+        "calories": 300,
+        "fat": 15,
+        "carbohydrates": 20,
+        "protein": 40,
+        "servingSize": "100 gramos de pescado, 1 taza de verduras"
+      },
+      {
+        "name": "Pollo a la plancha con arroz integral",
+        "calories": 400,
+        "fat": 10,
+        "carbohydrates": 40,
+        "protein": 30,
+        "servingSize": "100 gramos de pollo, 1 taza de arroz integral"
+      },
+      {
+        "name": "Lentejas con arroz integral",
+        "calories": 300,
+        "fat": 10,
+        "carbohydrates": 50,
+        "protein": 20,
+        "servingSize": "1 taza de lentejas, 1 taza de arroz integral"
+      },
+      {
+        "name": "Hummus con pan integral",
+        "calories": 250,
+        "fat": 10,
+        "carbohydrates": 30,
+        "protein": 25,
+        "servingSize": "1/2 taza de hummus, 2 rebanadas de pan integral"
+      },
+      {
+        "name": "Yogur griego con fruta y frutos secos",
+        "calories": 200,
+        "fat": 5,
+        "carbohydrates": 20,
+        "protein": 25,
+        "servingSize": "1 taza de yogur griego, 1/2 taza de fruta, 1 cucharada de frutos secos"
+      },
+      {
+        "name": "Guacamole con tostadas integrales",
+        "calories": 250,
+        "fat": 15,
+        "carbohydrates": 20,
+        "protein": 5,
+        "servingSize": "1/2 taza de guacamole, 2 tostadas integrales"
+      },
+      {
+        "name": "Omelet de verduras",
+        "calories": 300,
+        "fat": 15,
+        "carbohydrates": 20,
+        "protein": 25,
+        "servingSize": "1 omelet, 1 taza de verduras"
+      },
+      {
+        "name": "Smoothie de frutas y verduras",
+        "calories": 200,
+        "fat": 5,
+        "carbohydrates": 30,
+        "protein": 5,
+        "servingSize": "1 vaso de smoothie"
+      },
+      {
+        "name": "Fruta fresca",
+        "calories": 150,
+        "fat": 5,
+        "carbohydrates": 30,
+        "protein": 5,
+        "servingSize": "1 taza de fruta"
+      }
+]
